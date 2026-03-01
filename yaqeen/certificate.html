@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love Certificate 💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="page-hero glass">
+      <p class="small-title">A forever keepsake ✨</p>
+      <h1>Love Certificate</h1>
+      <p>Print this and keep it as a memory of your love.</p>
+    </section>
+
+    <section class="certificate glass">
+      <h2>This Certifies That</h2>
+      <p class="cert-names"><span id="certNameOne">Yassine</span> &amp; <span id="certNameTwo">Yaqeen</span></p>
+      <p class="cert-text">share a beautiful love story full of trust, kindness, laughter, and forever promises.</p>
+
+      <div class="cert-meta">
+        <div>
+          <span class="meta-label">Together Since</span>
+          <span class="meta-value" id="certDate">18 December 2025</span>
+        </div>
+        <div>
+          <span class="meta-label">Certificate Date</span>
+          <span class="meta-value" id="todayDate"></span>
+        </div>
+      </div>
+
+      <p class="cert-quote">"You are my today and all of my tomorrows."</p>
+
+      <div class="certificate-actions">
+        <button class="soft-btn" id="printCertificateBtn" type="button">Print Certificate 🖨️</button>
+        <a class="soft-btn back-home" href="index.html">Back to Home 💞</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const todayDateEl = document.getElementById("todayDate");
+    todayDateEl.textContent = new Date().toLocaleDateString(undefined, {
+      day: "2-digit",
+      month: "long",
+      year: "numeric"
+    });
+
+    document.getElementById("printCertificateBtn").addEventListener("click", () => {
+      window.print();
+    });
+  </script>
+</body>
+</html>
