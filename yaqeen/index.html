@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Favorite Person 💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="locked">
+  <canvas id="bgCanvas"></canvas>
+
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="glow glow-3"></div>
+
+  <button id="themeToggleBtn" class="theme-toggle" type="button" aria-label="Toggle day and night theme">
+    🌙 Night
+  </button>
+
+  <button id="themeToggleBtnMobile" class="theme-toggle-mobile" type="button" aria-label="Toggle day and night theme for mobile">
+    🌙 Night Mode
+  </button>
+
+  <button id="backToTopBtn" class="back-to-top" type="button" aria-label="Back to top">
+    ↑ Top
+  </button>
+
+  <section id="lockScreen" class="lock-screen">
+    <div class="lock-card glass">
+      <p class="small-title">Private Gift 🔒</p>
+      <h2>Enter Password to Open</h2>
+      <p class="lock-help">Only for you, my love.</p>
+      <form id="lockForm" class="lock-form">
+        <input id="lockInput" type="password" inputmode="numeric" autocomplete="off" placeholder="Password" />
+        <button type="submit" class="love-btn lock-btn">Unlock 💖</button>
+      </form>
+      <p id="lockError" class="lock-error" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <main class="page">
+    <section class="hero glass">
+      <p class="small-title">A little gift for you ✨</p>
+      <h1>To My Beautiful <span id="loveName">Love</span> 💕</h1>
+      <p class="typewriter" id="typewriter"></p>
+
+      <div class="stats">
+        <div class="stat-card">
+          <span class="stat-label">Together for</span>
+          <span class="stat-value" id="daysTogether">0 days</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Love in seconds</span>
+          <span class="stat-value stat-seconds" id="secondsTogether">0 seconds</span>
+        </div>
+        <div class="stat-card reasons-card" id="reasonsCard" role="button" tabindex="0" aria-label="Show reasons I adore you">
+          <span class="stat-label">Reasons I adore you</span>
+          <span class="stat-value" id="reasonsCount">∞</span>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <button id="loveBurstBtn" class="love-btn">Send You A Love Burst 💘</button>
+        <button id="complimentRainBtn" class="love-btn compliment-btn">Click me 🥰</button>
+      </div>
+    </section>
+
+    <section class="message-grid">
+      <article class="message-card glass reveal">
+        <h2>You are my peace</h2>
+        <p>
+          With you, life feels lighter, warmer, and full of meaning. You turn ordinary moments into beautiful memories.
+        </p>
+      </article>
+
+      <article class="message-card glass reveal">
+        <h2>You are my joy</h2>
+        <p>
+          Your smile is my favorite view. Your laugh is my favorite sound. Your heart is my favorite home.
+        </p>
+      </article>
+
+      <article class="message-card glass reveal">
+        <h2>You are my forever favorite</h2>
+        <p>
+          I appreciate every little thing you do, every kind word, every tiny gesture. I love you more every day.
+        </p>
+      </article>
+    </section>
+
+    <section class="photo-section glass reveal">
+      <h2>Our Photo Corner 📸</h2>
+      <p>One frame, a thousand beautiful memories together.</p>
+      <div class="photo-stage">
+        <span class="photo-spark spark-1">✨</span>
+        <span class="photo-spark spark-2">💖</span>
+        <span class="photo-spark spark-3">✨</span>
+        <div class="photo-frame">
+          <img id="couplePhoto" alt="Our beautiful memory together" />
+          <span class="photo-sticker">Us 💞</span>
+        </div>
+      </div>
+      <span class="photo-hint">Our favorite memory, forever glowing ✨</span>
+    </section>
+
+    <section class="carousel glass reveal">
+      <h2>Little Love Notes 💌</h2>
+      <div class="note-box" id="noteBox"></div>
+      <div class="carousel-loading" aria-hidden="true">
+        <span class="carousel-progress"></span>
+      </div>
+    </section>
+
+    <section class="proposal glass reveal">
+      <h2>Future Envelope ✉️</h2>
+      <p>A special letter waiting for the perfect time.</p>
+      <button id="envelopeBtn" class="envelope-btn" type="button">
+        <span class="envelope-icon">💌</span>
+        <span id="envelopeBtnText">Envelope Locked</span>
+      </button>
+      <p id="proposalLock" class="proposal-lock"></p>
+      <div id="proposalMessage" class="proposal-message" hidden>
+        <h3>Will you marry me? 💍</h3>
+        <p>You are my always, my forever, and my favorite love story.</p>
+        <div class="proposal-actions">
+          <button id="yesBtn" class="proposal-choice yes" type="button">Yes 💖</button>
+          <button id="noBtn" class="proposal-choice no" type="button">No 🙈</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline-year glass reveal">
+      <h2>Our Timeline by Year 🕰️</h2>
+      <p>Open each year to revisit our favorite memories together.</p>
+      <div class="timeline-accordion">
+        <details class="year-memory" open>
+          <summary>2025 — The Beautiful Beginning</summary>
+          <ul>
+            <li>18 Dec 2025: The day our story started 💞</li>
+            <li>26 Dec 2025: First official date and photos 📸</li>
+          </ul>
+        </details>
+
+        <details class="year-memory">
+          <summary>2026 — Growing Together</summary>
+          <ul>
+            <li>05 Jan 2026: First kiss 💋</li>
+            <li>07 Jan 2026: Cinema date — "sa7bek rajel 2" 🎬</li>
+            <li>14 Jan 2026: Coffee together in Sidi Bou Said park ☕</li>
+            <li>22 Jan 2026: Pasta date — we spent 75 dinars 🍝</li>
+            <li>23 Jan 2026: Burger date 🍔</li>
+            <li>30 Jan 2026: We spent the night together at Must 🌙</li>
+            <li>09 Feb 2026: Coffee date in La Marsa ☕</li>
+            <li>11 Feb 2026: We ate a djeja in Carthage 🍗</li>
+            <li>14 Feb 2026: First Valentine date — you gave me a full box of gifts, I gave you a small gift 🎁</li>
+            <li>18 Feb 2026: First Ramadan together (we messed up our first day 😅) 🌙</li>
+            
+          </ul>
+        </details>
+
+        <details class="year-memory">
+          <summary>Future — Our Next Chapters</summary>
+          <ul>
+            <li>2031: Getting married 💍</li>
+            <li>Traveling together and collecting new memories ✈️</li>
+            <li>Celebrating milestones hand in hand 🌹</li>
+            <li>Writing the sweetest forever story, together 💍</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <section class="promise-wall glass reveal">
+      <h2>Promise Wall 💫</h2>
+      <p>My promises to you, glowing forever.</p>
+      <div class="promise-grid">
+        <article class="promise-card"><h3>I Promise</h3><p>to choose you every single day.</p></article>
+        <article class="promise-card"><h3>I Promise</h3><p>to protect your heart and your peace.</p></article>
+        <article class="promise-card"><h3>I Promise</h3><p>to be honest, gentle, and patient.</p></article>
+        <article class="promise-card"><h3>I Promise</h3><p>to celebrate your wins and hold you in hard days.</p></article>
+        <article class="promise-card"><h3>I Promise</h3><p>to keep loving you louder, deeper, and better.</p></article>
+        <article class="promise-card"><h3>I Promise</h3><p>to build a beautiful life with you.</p></article>
+      </div>
+    </section>
+
+    <section class="future-kids glass reveal">
+      <h2>Our Future Little Stars ✨</h2>
+      <p>Our future kids' names are in our hearts.</p>
+      <div class="kids-grid">
+        <article class="kid-card">
+          <span class="kid-label">Future Boy</span>
+          <h3>Yahya</h3>
+          <p>Strong heart, kind soul, full of light 💙</p>
+        </article>
+        <article class="kid-card">
+          <span class="kid-label">Future Girl</span>
+          <h3>Mariem</h3>
+          <p>Gentle spirit, beautiful smile, endless warmth 💗</p>
+        </article>
+      </div>
+      <p class="kids-note">A little dream from us, written with love 🤍</p>
+    </section>
+
+    <section class="certificate-preview glass reveal">
+      <h2>Love Certificate Preview 💖</h2>
+      <p>Another way to display the same certificate, right here on this page.</p>
+      <div class="mini-certificate">
+        <p class="mini-label">This certifies that</p>
+        <p class="mini-names"><span id="previewNameOne">Yassine</span> &amp; <span id="previewNameTwo">Yaqeen</span></p>
+        <p class="mini-text">share a beautiful love story full of kindness, trust, and forever promises.</p>
+        <p class="mini-date">Together since <span id="previewSince">18 December 2025</span></p>
+        <p class="mini-date">Certificate date <span id="previewTodayDate">--</span></p>
+      </div>
+      <div class="certificate-preview-actions">
+        <a class="soft-btn back-home" href="certificate.html">Open Full Certificate 🖨️</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="heartLayer"></div>
+
+  <section id="reasonsModal" class="reasons-modal" hidden>
+    <div class="reasons-box glass">
+      <h3>5 Reasons I Adore You 💖</h3>
+      <ul id="reasonsList"></ul>
+      <button id="closeReasonsBtn" class="soft-btn" type="button">Close ✨</button>
+    </div>
+  </section>
+
+  <audio id="romanticSong" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8f8f66f6e.mp3?filename=romantic-piano-114257.mp3" loop preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
